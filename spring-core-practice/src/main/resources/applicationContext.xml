@@ -23,9 +23,10 @@
 
     <bean id="musicPlayer"
           class="ru.semenov.springcourse.MusicPlayer"
-          scope="prototype"
+          scope="singleton"
           init-method="initMethod"
-          destroy-method="destroyMethod">
+          destroy-method="destroyMethod"
+          factory-method="getMusicPlayer">
         <property name="musicList">
             <list>
                 <ref bean="rockMusicBean"/>

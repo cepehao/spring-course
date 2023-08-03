@@ -11,8 +11,13 @@ public class MusicPlayer {
     private int volume;
 
 
-    public MusicPlayer() {
+    private MusicPlayer() {
 
+    }
+
+    public static MusicPlayer getMusicPlayer() {
+        System.out.println("factory-method working");
+        return new MusicPlayer();
     }
 
     public void setMusicList(List<Music> musicList) {
