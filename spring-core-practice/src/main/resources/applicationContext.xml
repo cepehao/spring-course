@@ -23,7 +23,9 @@
 
     <bean id="musicPlayer"
           class="ru.semenov.springcourse.MusicPlayer"
-          scope="prototype">
+          scope="prototype"
+          init-method="initMethod"
+          destroy-method="destroyMethod">
         <property name="musicList">
             <list>
                 <ref bean="rockMusicBean"/>
