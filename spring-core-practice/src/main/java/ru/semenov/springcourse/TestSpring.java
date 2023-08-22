@@ -6,17 +6,13 @@ public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Music classicalMusic = context.getBean("classicalMusic", Music.class);
-        Music rockMusic = context.getBean("rockMusic", Music.class);
-        Music jazzMusic = context.getBean("jazzMusic", Music.class);
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//
+//        musicPlayer.playMusic();
 
-        MusicPlayer classicalMusicPlayer = new MusicPlayer(classicalMusic);
-        MusicPlayer rockMusicPlayer = new MusicPlayer(rockMusic);
-        MusicPlayer jazzMusicPlayer = new MusicPlayer(jazzMusic);
+        Computer computer = context.getBean("computer", Computer.class);
 
-        classicalMusicPlayer.playMusic();
-        rockMusicPlayer.playMusic();
-        jazzMusicPlayer.playMusic();
+        System.out.println(computer);
 
         context.close();
     }
