@@ -32,9 +32,6 @@ public class SpringConfig {
         return new MusicPlayer(genres());
     }
 
-//    @Bean Computer computer() {
-//        return new Computer(musicPlayer());
-//    }
 
     @Bean
     List<Music> genres() {
