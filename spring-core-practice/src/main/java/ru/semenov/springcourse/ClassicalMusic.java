@@ -21,10 +21,6 @@ public class ClassicalMusic implements Music {
         System.out.println("Destroy method");
     }
 
-    @Override
-    public List<String> getSongs() {
-        return new ArrayList<>(Arrays.asList("Классическая песня 1", "Классическая песня 2", "Классическая песня 3"));
-    }
 
     @Override
     public String getSong() {

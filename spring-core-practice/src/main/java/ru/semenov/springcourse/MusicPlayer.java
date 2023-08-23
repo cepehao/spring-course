@@ -15,8 +15,11 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
-    private Music classicalMusic;
-    private Music rockMusic;
+    private List<Music> genres;
+
+    public List<Music> getGenres() {
+        return genres;
+    }
 
     public String getName() {
         return name;
@@ -27,21 +30,15 @@ public class MusicPlayer {
     }
 
     @Autowired
-    public MusicPlayer(@Qualifier("classicalMusic") Music music1, @Qualifier("rockMusic") Music music2) {
-        this.classicalMusic = music1;
-        this.rockMusic = music2;
+    public MusicPlayer(List<Music> genres) {
+        this.genres = genres;
     }
 
-    public String playMusic(MusicType musicType) {
+    public void playMusic() {
         Random random = new Random();
-        int randomNumber = random.nextInt(3);
+        int randomNumber = random.nextInt(genres.size());
 
-        if (musicType == MusicType.CLASSICAL) {
-            return classicalMusic.getSongs().get(randomNumber);
-        }
-        else {
-            return rockMusic.getSongs().get(randomNumber);
-        }
+        System.out.println(genres.get(randomNumber).getSong());
     }
 
 }

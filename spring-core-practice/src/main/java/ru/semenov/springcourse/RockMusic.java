@@ -8,10 +8,6 @@ import java.util.List;
 
 public class RockMusic implements Music {
 
-    @Override
-    public List<String> getSongs() {
-        return new ArrayList<>(Arrays.asList("Песня жанра рок 1", "Песня жанра рок 2", "Песня жанра рок 3"));
-    }
 
     @Override
     public String getSong() {

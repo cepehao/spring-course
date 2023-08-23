@@ -17,21 +17,25 @@ public class TestSpring {
 //
 //        System.out.println(computer);
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//
+//        System.out.println(musicPlayer.getName());
+//        System.out.println(musicPlayer.getVolume());
 
 //        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
 //        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
 //
 //        System.out.println(classicalMusic1 == classicalMusic2);
 
-        System.out.println();
+//        System.out.println();
+//
+//        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
+//
+//        System.out.println(classicalMusic.getSong());
 
-        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        System.out.println(classicalMusic.getSong());
+        musicPlayer.playMusic();
 
         context.close();
 
