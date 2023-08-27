@@ -1,6 +1,7 @@
 package ru.semenov.springcourse.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +14,7 @@ public class FirstController {
     public String helloPage(@RequestParam(value = "name", required = false) String name,
                             @RequestParam(value = "surname", required = false) String surname) {
 
-        System.out.println("Hello from " + name + ' ' + surname);
+        System.out.println("Hello, " + name + " " + surname);
 
         return "first/hello";
     }
@@ -21,5 +22,44 @@ public class FirstController {
     @GetMapping("goodbye")
     public String goodByePage() {
         return "first/goodbye";
+    }
+
+    @GetMapping("/calculator")
+    public String helloPage(@RequestParam(value = "a") int a,
+                            @RequestParam(value = "b") int b,
+                            @RequestParam(value = "action") String action,
+                            Model model) {
+
+        String res;
+
+        switch (action){
+            case "multiplication":
+                res = Double.toString(a * b);
+                break;
+
+            case "addition":
+                res = Double.toString(a + b);
+                break;
+
+            case "substraction":
+                res = Double.toString(a - b);
+                break;
+
+            case "division":
+                if (b == 0) {
+                    res = "Division by zero";
+                }
+                else {
+                    res = Double.toString((double) a / b);
+                }
+                break;
+
+            default:
+                res = "incorrect action";
+        }
+
+        model.addAttribute("result", res);
+
+        return "first/calculator";
     }
 }
