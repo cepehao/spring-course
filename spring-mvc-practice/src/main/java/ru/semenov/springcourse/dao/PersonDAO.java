@@ -15,10 +15,10 @@ public class PersonDAO {
     {
         people = new ArrayList<>();
 
-        people.add(new Person(++PEOPLE_COUNT, "Danil"));
-        people.add(new Person(++PEOPLE_COUNT, "Sergey"));
-        people.add(new Person(++PEOPLE_COUNT, "Ivan"));
-        people.add(new Person(++PEOPLE_COUNT, "Alexey"));
+        people.add(new Person(++PEOPLE_COUNT, "Danil", 22, "danil@yandex.ru"));
+        people.add(new Person(++PEOPLE_COUNT, "Sergey", 25, "Seregea228@yandex.ru"));
+        people.add(new Person(++PEOPLE_COUNT, "Ivan", 33, "helloworld@mail.ru"));
+        people.add(new Person(++PEOPLE_COUNT, "Alexey", 5, "alex@gmail.com"));
     }
 
     public List<Person> index() {
@@ -39,6 +39,8 @@ public class PersonDAO {
         Person oldPerson = show(id);
 
         oldPerson.setName(newPerson.getName());
+        oldPerson.setAge(newPerson.getAge());
+        oldPerson.setEmail(newPerson.getEmail());
     }
 
     public void delete(int id) {
